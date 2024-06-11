@@ -1,0 +1,57 @@
+﻿@model List<QuartoModel>
+
+@{
+    ViewData["Title"] = "Quartos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listagem dos quartos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Quarto</th>
+                <th scope="col">Status</th>
+                <th scope="col">Nome</th>
+                <th scope="col"><a class="btn btn-secondary" role="button" asp-controller="Quartos" asp-action="Novo">Adicionar novo quarto</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                foreach (QuartoModel quarto in Model)
+                {
+                    <tr>
+                        <th scope="row">@quarto.Id</th>
+                        <td>@quarto.NumQuarto</td>
+                        <td>@if(quarto.Status == true)
+                            {
+                                <p>Ocupado</p>
+                            }
+                            else
+                            {
+                                <p>Vazio</p>
+                            }
+                        </td>
+                        <td>@quarto.Hospede</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <button type="button" asp-route-id="@quarto.Id" class="btn btn-primary">Editar</button>
+                                @if (quarto.Status == true)
+                                {
+                                    <a type="button" asp-route-id="@quarto.Id" class="btn btn-danger" asp-controller="Quartos" asp-action="Editar">Check-Out</a>
+                                }
+                                else
+                                {
+                                    <a type="button" asp-route-id="@quarto.Id" class="btn btn-success" asp-controller="Quartos" asp-action="Criar">Check-In</a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+

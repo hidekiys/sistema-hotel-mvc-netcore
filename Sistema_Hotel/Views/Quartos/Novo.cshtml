@@ -1,0 +1,11 @@
+﻿@model QuartoModel
+
+<form asp-controller="Quartos" asp-action="Criar">
+    <div class="mb-3">
+        <label for="numQuarto" class="form-label">Numero do quarto:</label>
+        <input type="text" asp-for="NumQuarto" class="form-control" placeholder="Insira o numero do quarto" />
+    </div>
+    <br />
+    <input type="hidden" asp-for="Status" value="false" />
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
