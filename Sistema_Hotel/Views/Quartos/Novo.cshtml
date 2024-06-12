@@ -4,10 +4,16 @@
     <div class="mb-3">
         <label for="numQuarto" class="form-label">Numero do quarto:</label>
         <input type="text" asp-for="NumQuarto" required class="form-control" placeholder="Insira o numero do quarto" />
+        <select asp-for="Tipo" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option value="1000" selected>Básico</option>
+            <option value="1500">Suite</option>
+            <option value="3000">Suite Master</option>
+        </select>
     </div>
     <br />
     <input type="hidden" asp-for="Status" value="false" />
     <input type="hidden" asp-for="DataIn" value="@String.Format("{0:d}", System.DateTime.Now)" />
     <input type="hidden" asp-for="DataOut" value="@String.Format("{0:d}", System.DateTime.Now)" />
+    <a type="button" asp-controller="Quartos" asp-action="Index" class="btn btn-secondary">Voltar</a>
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>

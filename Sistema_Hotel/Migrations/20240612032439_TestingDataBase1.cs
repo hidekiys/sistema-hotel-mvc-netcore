@@ -5,7 +5,7 @@
 namespace Sistema_Hotel.Migrations
 {
     /// <inheritdoc />
-    public partial class AddIsRequired : Migration
+    public partial class TestingDataBase1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

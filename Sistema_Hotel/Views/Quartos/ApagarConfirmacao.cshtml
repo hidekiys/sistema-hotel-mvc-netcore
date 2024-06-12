@@ -1,0 +1,9 @@
+﻿@model QuartoModel
+<div class="text-center">
+    <h1>Tem certeza que deseja apagar o quarto @Model.NumQuarto ?</h1>
+    <div class="row">
+        <a type="button" asp-controller="Quartos" asp-action="Apagar" asp-route-id="@Model.Id" class="btn btn-danger">Apagar </a>
+        <a type="button" asp-controller="Quartos" asp-action="Index"  class="btn btn-secondary">Cancelar</a>
+    </div>
+
+</div>

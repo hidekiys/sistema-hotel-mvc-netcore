@@ -16,6 +16,13 @@ namespace Sistema_Hotel.Controllers
             List<QuartoModel> quartos = _quartoRepositorio.BuscarTodos();
             return View(quartos);
         }
+        public IActionResult ApagarConfirmacao(int id)
+        {
+            QuartoModel quarto = _quartoRepositorio.ListarPorId(id);
+            return View(quarto);
+        }
+
+
         public IActionResult Criar(int id)
         {
             List<HospedeModel> oListHospede = _quartoRepositorio.BuscarTodosHospedes();
@@ -38,6 +45,11 @@ namespace Sistema_Hotel.Controllers
         public IActionResult NovoHospede(int id)
         {
             return View();
+        }
+        public IActionResult Apagar(int id)
+        {
+            _quartoRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

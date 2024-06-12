@@ -9,6 +9,7 @@ var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetService<IConfiguration>();
 builder.Services.AddDbContext<BancoContext>(item => item.UseSqlServer(configuration.GetConnectionString("DataBase")));
 builder.Services.AddScoped<iQuartoRepositorio, QuartoRepositorio>();
+builder.Services.AddScoped<iHospedeRepositorio, HospedeRepositorio>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -34,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Quartos}/{action=Index}/{id?}");
 
 app.Run();

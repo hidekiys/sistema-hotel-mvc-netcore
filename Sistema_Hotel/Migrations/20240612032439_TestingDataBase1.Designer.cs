@@ -12,8 +12,8 @@ using Sistema_Hotel.Data;
 namespace Sistema_Hotel.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240611215721_AddIsRequired")]
-    partial class AddIsRequired
+    [Migration("20240612032439_TestingDataBase1")]
+    partial class TestingDataBase1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,12 @@ namespace Sistema_Hotel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AtualCPF")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AtualNome")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateOnly>("DataIn")
                         .HasColumnType("date");
 
@@ -67,8 +73,11 @@ namespace Sistema_Hotel.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<float>("Valor")
-                        .HasColumnType("real");
+                    b.Property<double?>("Tipo")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

@@ -11,6 +11,16 @@
             <input type="text" asp-for="AtualCPF" class="form-control col ms-2" placeholder="Insira o CPF do hospede" />
         </div>
         <br />
+        <div class="form-floating">
+            <select asp-for="Tipo" class="form-select" disabled id="floatingSelect" aria-label="Floating label select example">
+                <option value="1000" selected>Básico</option>
+                <option value="1500">Suite</option>
+                <option value="3000">Suite Master</option>
+            </select>
+            <label for="floatingSelect">Selecione o tipo do quarto</label>
+        </div>
+        </select>
+        <br />
         <div class="row">
             <div class="form-group col">
                 <label for="numQuarto"  class="form-label">Quarto</label>
@@ -27,6 +37,7 @@
         </div>
         <br />
         <input type="hidden" asp-for="Status" value="true" />
+        <a type="button" asp-controller="Quartos" asp-action="Index" class="btn btn-secondary">Voltar</a>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 

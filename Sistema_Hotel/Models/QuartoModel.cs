@@ -11,7 +11,8 @@ namespace Sistema_Hotel.Models
         public bool Status { get; set; }
         public DateOnly DataIn { get; set; }
         public DateOnly DataOut { get; set; }
-        public float Valor { get; set; }
+        public double? Tipo { get; set; }
+        public double Valor { get; set; }
         public int? AtualCPF { get; set; }
         public string? AtualNome { get; set; }
         public HospedeModel? ObjHospede { get; set; }

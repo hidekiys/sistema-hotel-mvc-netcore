@@ -70,8 +70,11 @@ namespace Sistema_Hotel.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<float>("Valor")
-                        .HasColumnType("real");
+                    b.Property<double?>("Tipo")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

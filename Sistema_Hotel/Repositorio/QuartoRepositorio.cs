@@ -82,6 +82,15 @@ namespace Sistema_Hotel.Repositorio
             return hospede;
         }
 
+        public bool Apagar(int id)
+        {
+            QuartoModel quartoDb = ListarPorId(id);
+            if (quartoDb == null) throw new System.Exception("Houve um erro na deleção do quarto");
 
+            _bancoContext.Quartos.Remove(quartoDb);
+            _bancoContext.SaveChanges();
+
+            return true;
+        }
     }
 }

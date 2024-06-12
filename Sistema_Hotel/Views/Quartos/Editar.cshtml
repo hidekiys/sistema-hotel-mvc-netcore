@@ -7,9 +7,14 @@
         <div class="form-group">
             <label for="hospede" class="form-label">Hospede</label>
             <div class="row">
-                <div class="col-1"></div>
                 <input type="text" disabled class="form-control col ms-2" value="@Model.AtualNome">
             </div>
+            <br />
+            <select asp-for="Tipo" class="form-select" disabled id="floatingSelect" aria-label="Floating label select example">
+                <option value="1000" selected>Básico</option>
+                <option value="1500">Suite</option>
+                <option value="3000">Suite Master</option>
+            </select>
         </div>
         <br />
         <div class="row">
@@ -28,6 +33,7 @@
         </div>
         <br />
         <input type="hidden" asp-for="Status" value="false" />
+        <a type="button" asp-controller="Quartos" asp-action="Index" class="btn btn-secondary">Voltar</a>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 
@@ -44,24 +50,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nomeHospede" class="form-label">Nome:</label>
-                        <input type="text" class="form-control" placeholder="Insira o nome do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpf" class="form-label">CPF:</label>
-                        <input type="text" class="form-control" placeholder="Insira o CPF do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail:</label>
-                        <input type="text" class="form-control" placeholder="Insira o e-mail do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tel" class="form-label">Telefone:</label>
-                        <input type="number" class="form-control" placeholder="Insira o telefone do hospede">
-                    </div>
-                </form>
+                <p>
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="fechar">Fechar</button>

@@ -1,0 +1,9 @@
+﻿@model HospedeModel
+<div class="text-center">
+    <h1>Tem certeza que deseja apagar o quarto @Model.Nome ?</h1>
+    <div class="row">
+        <a type="button" asp-controller="Hospedes" asp-action="Apagar" asp-route-id="@Model.CPF" class="btn btn-danger">Apagar </a>
+        <a type="button" asp-controller="Hospedes" asp-action="Index"  class="btn btn-secondary">Cancelar</a>
+    </div>
+
+</div>

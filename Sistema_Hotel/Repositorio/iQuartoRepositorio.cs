@@ -13,5 +13,7 @@ namespace Sistema_Hotel.Repositorio
 
         HospedeModel AdicionarHospede(HospedeModel hospede);
         List<HospedeModel> BuscarTodosHospedes();
+
+        bool Apagar(int id);
     }
 }

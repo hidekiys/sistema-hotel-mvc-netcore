@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Sistema_Hotel.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDB : Migration
+    public partial class TestingDataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,7 +35,10 @@ namespace Sistema_Hotel.Migrations
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     DataIn = table.Column<DateOnly>(type: "date", nullable: false),
                     DataOut = table.Column<DateOnly>(type: "date", nullable: false),
-                    Valor = table.Column<float>(type: "real", nullable: false),
+                    Tipo = table.Column<double>(type: "float", nullable: true),
+                    Valor = table.Column<double>(type: "float", nullable: false),
+                    AtualCPF = table.Column<int>(type: "int", nullable: true),
+                    AtualNome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ObjHospedeCPF = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>

@@ -1,0 +1,50 @@
+﻿@model List<HospedeModel>
+
+@{
+    ViewData["Title"] = "Hospedes";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listagem dos hospedes</h1>
+    <div class="grid text-center">
+        <a type="button" asp-controller="Quartos" asp-action="NovoHospede" class="btn btn-primary col-3 m-2">Novo hospede</a>
+        <a class="btn btn-primary col-3 m-2" role="button" asp-controller="Quartos" asp-action="Novo">Novo quarto</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (HospedeModel hospede in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            @hospede.Nome
+                        </th>
+                        <td>@hospede.CPF</td>
+                        <td>@hospede.Telefone
+                        </td>
+                        <td>
+                            @hospede.Email
+                        </td>
+                        <td>
+                            <a type="button" asp-route-id="@hospede.CPF" class="btn btn-danger" asp-controller="Hospedes" asp-action="ApagarConfirmacao">Apagar</a>
+                            <a type="button" asp-route-id="@hospede.CPF" class="btn btn-secondary" asp-controller="Hospedes" asp-action="Editar">Editar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
