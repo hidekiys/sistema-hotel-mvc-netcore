@@ -18,14 +18,24 @@ namespace Sistema_Hotel.Controllers
         }
         public IActionResult Criar(int id)
         {
+            List<HospedeModel> oListHospede = _quartoRepositorio.BuscarTodosHospedes();
+
             QuartoModel quarto = _quartoRepositorio.ListarPorId(id);
+            
             return View(quarto);
         }
-        public IActionResult Editar()
-        { 
-            return View();
+
+        public IActionResult Editar(int id)
+        {
+            QuartoModel quarto = _quartoRepositorio.ListarPorId(id);
+
+            return View(quarto);
         }
         public IActionResult Novo()
+        {
+            return View();
+        }
+        public IActionResult NovoHospede(int id)
         {
             return View();
         }
@@ -48,6 +58,13 @@ namespace Sistema_Hotel.Controllers
         {
             _quartoRepositorio.CheckOut(quarto);
             return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult NewHospede(HospedeModel hospede)
+        {
+             _quartoRepositorio.AdicionarHospede(hospede);
+             return RedirectToAction("Index");
+
         }
 
     }

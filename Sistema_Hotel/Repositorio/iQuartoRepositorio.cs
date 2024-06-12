@@ -10,5 +10,8 @@ namespace Sistema_Hotel.Repositorio
         QuartoModel Atualizar(QuartoModel quarto);
 
         QuartoModel CheckOut(QuartoModel quarto);
+
+        HospedeModel AdicionarHospede(HospedeModel hospede);
+        List<HospedeModel> BuscarTodosHospedes();
     }
 }

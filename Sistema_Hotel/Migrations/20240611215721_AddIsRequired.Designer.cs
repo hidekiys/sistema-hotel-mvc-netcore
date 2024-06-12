@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Hotel.Data;
 
@@ -11,9 +12,11 @@ using Sistema_Hotel.Data;
 namespace Sistema_Hotel.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20240611215721_AddIsRequired")]
+    partial class AddIsRequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,12 +51,6 @@ namespace Sistema_Hotel.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AtualCPF")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AtualNome")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("DataIn")
                         .HasColumnType("date");

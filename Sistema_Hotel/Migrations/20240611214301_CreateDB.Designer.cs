@@ -12,8 +12,8 @@ using Sistema_Hotel.Data;
 namespace Sistema_Hotel.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240611003839_ArrumandoNULL")]
-    partial class ArrumandoNULL
+    [Migration("20240611214301_CreateDB")]
+    partial class CreateDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,25 @@ namespace Sistema_Hotel.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Sistema_Hotel.Models.HospedeModel", b =>
+                {
+                    b.Property<long>("CPF")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Telefone")
+                        .HasColumnType("int");
+
+                    b.HasKey("CPF");
+
+                    b.ToTable("Hospedes");
+                });
+
             modelBuilder.Entity("Sistema_Hotel.Models.QuartoModel", b =>
                 {
                     b.Property<int>("Id")
@@ -33,14 +52,17 @@ namespace Sistema_Hotel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataIn")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataIn")
+                        .HasColumnType("date");
 
-                    b.Property<DateTime>("DataOut")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataOut")
+                        .HasColumnType("date");
 
-                    b.Property<string>("Hospede")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NumQuarto")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("ObjHospedeCPF")
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -50,7 +72,18 @@ namespace Sistema_Hotel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ObjHospedeCPF");
+
                     b.ToTable("Quartos");
+                });
+
+            modelBuilder.Entity("Sistema_Hotel.Models.QuartoModel", b =>
+                {
+                    b.HasOne("Sistema_Hotel.Models.HospedeModel", "ObjHospede")
+                        .WithMany()
+                        .HasForeignKey("ObjHospedeCPF");
+
+                    b.Navigation("ObjHospede");
                 });
 #pragma warning restore 612, 618
         }

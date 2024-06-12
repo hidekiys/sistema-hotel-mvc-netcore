@@ -1,5 +1,4 @@
 ﻿@model QuartoModel
-
 <div class="text-left">
     <h1 class="display-4 text-center">Check-In</h1>
     <form asp-controller="Quartos" asp-action="Alterar" method="post">
@@ -7,24 +6,23 @@
         <div class="form-group">
             <label for="hospede" class="form-label">Hospede</label>
             <div class="row">
-                <input type="text" asp-for="Hospede" class="form-control col ms-2" placeholder="Insira o hospede">
                 <div class="col-1"></div>
-                <button type="button" class="btn btn-primary col-2" data-bs-toggle="modal" data-bs-target="#MyModal">Novo hospede</button>
             </div>
+            <input type="text" asp-for="AtualCPF" class="form-control col ms-2" placeholder="Insira o CPF do hospede" />
         </div>
         <br />
         <div class="row">
             <div class="form-group col">
-                <label for="numQuarto" asp-for="NumQuarto" disable class="form-label">Quarto</label>
-                <input type="text" class="form-control w-33" placeholder="Insira o quarto">
+                <label for="numQuarto"  class="form-label">Quarto</label>
+                <input type="text" asp-for="NumQuarto" disabled class="form-control w-33" placeholder="Insira o quarto">
             </div>
             <div class="form-group col">
                 <label for="checkIn" class="form-label">Data do check-in:</label>
-                <input type="text" asp-for="DataIn" name="date" class="datepicker form-control w-33">
+                <input type="date" asp-for="DataIn" required class="form-control w-33">
             </div>
             <div class="form-group col">
                 <label for="checkIn" class="form-label">Data do check-out:</label>
-                <input type="text" asp-for="DataOut" name="date" class="datepicker form-control w-33">
+                <input type="date" asp-for="DataOut" class="form-control w-33">
             </div>
         </div>
         <br />
@@ -33,52 +31,3 @@
     </form>
 
 </div>
-
-
-<div class="modal fade" id="MyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Novo Hospede</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="nomeHospede" class="form-label">Nome:</label>
-                        <input type="text" class="form-control" placeholder="Insira o nome do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpf" class="form-label">CPF:</label>
-                        <input type="text" class="form-control" placeholder="Insira o CPF do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail:</label>
-                        <input type="text" class="form-control" placeholder="Insira o e-mail do hospede">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tel" class="form-label">Telefone:</label>
-                        <input type="number" class="form-control" placeholder="Insira o telefone do hospede">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="fechar">Fechar</button>
-                <button type="button" class="btn btn-primary" id="salvar">Salvar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-@section Scripts{
-    <script>
-        $(function () {
-            $(".datepicker").datetimepicker();
-            $("#MyModal").modal();
-            $("#fechar").modal('hide');
-        });
-    </script>
-}

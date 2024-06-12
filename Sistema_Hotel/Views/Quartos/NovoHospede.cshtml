@@ -1,0 +1,24 @@
+﻿@model HospedeModel
+
+<form asp-controller="Quartos" asp-action="NewHospede" method="post">
+    <div class="mb-3">
+        <label for="nomeHospede" class="form-label">Nome:</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Insira o nome do hospede">
+    </div>
+    <div class="mb-3">
+        <label for="cpf" class="form-label">CPF:</label>
+        <input type="number" asp-for="CPF" class="form-control" placeholder="Insira o CPF do hospede">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail:</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Insira o e-mail do hospede">
+    </div>
+    <div class="mb-3">
+        <label for="tel" class="form-label">Telefone:</label>
+        <input type="number" asp-for="Telefone" class="form-control" placeholder="Insira o telefone do hospede">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  id="fechar">Fechar</button>
+        <button type="submit" class="btn btn-primary" id="salvar">Salvar</button>
+    </div>
+</form>

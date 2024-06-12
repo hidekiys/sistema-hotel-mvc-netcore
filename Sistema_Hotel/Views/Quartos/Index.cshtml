@@ -6,6 +6,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Listagem dos quartos</h1>
+    <a type="button" asp-route-id="Id" asp-controller="Quartos" asp-action="NovoHospede" class="btn btn-primary col-2">Novo hospede</a>
     <table class="table">
         <thead>
             <tr>
@@ -33,17 +34,18 @@
                                 <p>Vazio</p>
                             }
                         </td>
-                        <td>@quarto.Hospede</td>
+                        <td>@quarto.AtualNome
+                        </td>
                         <td>
                             <div class="btn-group" role="group">
-                                <button type="button" asp-route-id="@quarto.Id" class="btn btn-primary">Editar</button>
+                                <button type="button" asp-route-quarto="@quarto.Id" asp-route-id="@quarto.Id" class="btn btn-primary">Editar</button>
                                 @if (quarto.Status == true)
                                 {
-                                    <a type="button" asp-route-id="@quarto.Id" class="btn btn-danger" asp-controller="Quartos" asp-action="Editar">Check-Out</a>
+                                    <a type="button" asp-route-quarto="@quarto.Id" asp-route-id="@quarto.Id" class="btn btn-danger" asp-controller="Quartos" asp-action="Editar">Check-Out</a>
                                 }
                                 else
                                 {
-                                    <a type="button" asp-route-id="@quarto.Id" class="btn btn-success" asp-controller="Quartos" asp-action="Criar">Check-In</a>
+                                    <a type="button" asp-route-quarto="quarto" asp-route-id="@quarto.Id" class="btn btn-success" asp-controller="Quartos" asp-action="Criar">Check-In</a>
                                 }
                             </div>
                         </td>

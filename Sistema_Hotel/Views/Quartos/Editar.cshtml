@@ -7,24 +7,23 @@
         <div class="form-group">
             <label for="hospede" class="form-label">Hospede</label>
             <div class="row">
-                <input type="text" asp-for="Hospede" disabled class="form-control col ms-2" placeholder="Insira o hospede">
                 <div class="col-1"></div>
-                <button type="button" class="btn btn-primary col-2" data-bs-toggle="modal" data-bs-target="#MyModal">Novo hospede</button>
+                <input type="text" disabled class="form-control col ms-2" value="@Model.AtualNome">
             </div>
         </div>
         <br />
         <div class="row">
             <div class="form-group col">
-                <label for="numQuarto" disabled asp-for="NumQuarto" class="form-label">Quarto</label>
-                <input type="text" class="form-control w-33" placeholder="Insira o quarto">
+                <label for="numQuarto" class="form-label">Quarto</label>
+                <input type="text" disabled asp-for="NumQuarto" class="form-control w-33" placeholder="Insira o quarto">
             </div>
             <div class="form-group col">
                 <label for="checkIn" class="form-label">Data do check-in:</label>
-                <input type="text" disabled asp-for="DataIn" name="date" class="datepicker form-control w-33">
+                <input type="date" disabled asp-for="DataIn" class="form-control w-33">
             </div>
             <div class="form-group col">
                 <label for="checkIn" class="form-label">Data do check-out:</label>
-                <input type="text" asp-for="DataOut" name="date" class="datepicker form-control w-33">
+                <input type="date" asp-for="DataOut" class="form-control w-33">
             </div>
         </div>
         <br />
@@ -76,7 +75,7 @@
 @section Scripts {
     <script>
         $(function () {
-            $(".datepicker").datetimepicker();
+            
             $("#MyModal").modal();
             $("#fechar").modal('hide');
         });
